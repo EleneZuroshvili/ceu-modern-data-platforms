@@ -32,6 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   airbnb:
     src:
-      +materialized: ephemeral
+      +materialized: view
     dim:
       +materialized: view # This is default, but let's make it explicit
+
+data_tests:
+  +store_failures: true
+  +schema: _test_failures
