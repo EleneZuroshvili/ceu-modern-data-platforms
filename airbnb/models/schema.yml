@@ -1,12 +1,15 @@
 models:
   - name: dim_listings_cleansed
+    description: Cleansed table which contains Airbnb listings.
     columns:
       - name: listing_id
+        description: Primary key for the listing
         data_tests:
           - unique
           - not_null
 
       - name: host_id
+        description: The host's id. References the host table.
         data_tests:
           - not_null
           - relationships:
@@ -22,6 +25,8 @@ models:
                          'Private room',
                          'Shared room',
                          'Hotel room']
+      - name: minimum_nights
+        description: '{{ doc("dim_listing_cleansed__minimum_nights") }}'
 
   - name: dim_hosts_cleansed
     columns:
